@@ -1,0 +1,27 @@
+{% extends 'MovieInfo/base.html' %}
+{% block body %}
+
+<header>
+    <div class="container-fluid text-center container-pad">
+        <div class="intro-text">
+        <div class="intro-header">Movie Check</div>
+        <div class="intro-p">Your source for all the information you need about your favourite movies!</div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-lg-offset-3">
+                        <form method="get" action="result/">
+                                {% csrf_token %}
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control" name="search_box" placeholder="Search Movie...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Search</button>
+                                    </span>
+                            </div>
+                        </form>
+                </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+
+
