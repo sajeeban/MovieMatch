@@ -17,10 +17,20 @@ class IndexView(generic.ListView):
 def search(request):
     if request.method == 'GET':
         query = request.GET['search_box']
-        poster_url = MovieInfo(query).get_movie_poster()
-        backdrop_url = MovieInfo(query).get_movie_backdrop()
+        movie_info = MovieInfo(query).get_movie_info()
+        poster_url = movie_info['poster_url']
+        backdrop_url = movie_info['backdrop_url']
+        overview = movie_info['overview']
+        revenue = movie_info['revenue']
+        title = movie_info['title']
+        tagline = movie_info['tagline']
+
         context = {
             'poster_url': poster_url,
-            'backdrop_url': backdrop_url
+            'backdrop_url': backdrop_url,
+            'overview': overview,
+            'revenue': revenue,
+            'title': title,
+            'tagline': tagline
         }
         return render(request, 'MovieInfo/detail.html', context)

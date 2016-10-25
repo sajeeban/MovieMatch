@@ -67,3 +67,27 @@ header .intro-p {
     height:100%;
     border: none;
 }
+
+.tagline {
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 40px;
+    left: 50px;
+}
+
+.overview {
+    color: white;
+    margin: 0;
+    position: absolute;
+    top: 140px;
+    left: 50px;
+    right: 50px;
+    font-size: 150%;
+}
+
+.title {
+    color: white;
+    font-family: Serif;
+    padding: 10px;
+}
