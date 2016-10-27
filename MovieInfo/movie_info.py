@@ -25,7 +25,10 @@ class MovieInfo(object):
                 None. If no match was found
         """
         pattern = 'http://www.imdb.com/xml/find?json=1&nr=1&tt=on&q={movie_title}'
-        url = pattern.format(movie_title=urllib.parse.quote(title))
+        # Python 3.0
+        # url = pattern.format(movie_title=urllib.parse.quote(title))
+        # Python 2.7
+        url = pattern.format(movie_title=urllib.quote(title))
         r = requests.get(url)
         res = r.json()
         # sections in descending order or preference
@@ -73,14 +76,24 @@ class MovieInfo(object):
         revenue = info['revenue']
         title = info['title']
         tagline = info['tagline']
-        revenue = format(revenue, ",d")
+        release_date = info['release_date']
+        budget = info['budget']
+        runtime = info['runtime']
+        revenue_format = format(revenue, ",d")
+        budget_format = format(budget, ",d")
+
 
         movie_details = {
             'poster_url': poster_url,
             'backdrop_url': backdrop_url,
             'overview': overview,
-            'revenue': revenue,
+            'revenue': revenue_format,
             'title': title,
             'tagline': tagline,
+            'release_date': release_date,
+            'budget': budget_format,
+            'runtime': runtime
         }
         return movie_details
+
+movie = MovieInfo("Interstellar")
