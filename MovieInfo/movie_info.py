@@ -26,9 +26,9 @@ class MovieInfo(object):
         """
         pattern = 'http://www.imdb.com/xml/find?json=1&nr=1&tt=on&q={movie_title}'
         # Python 3.0
-        # url = pattern.format(movie_title=urllib.parse.quote(title))
+        url = pattern.format(movie_title=urllib.parse.quote(title))
         # Python 2.7
-        url = pattern.format(movie_title=urllib.quote(title))
+        #url = pattern.format(movie_title=urllib.quote(title))
         r = requests.get(url)
         res = r.json()
         # sections in descending order or preference
@@ -71,7 +71,6 @@ class MovieInfo(object):
 
         # Get movie information
         info = self._get_json(INFO_PATTERN.format(key=KEY, imdbid=imdbid))
-
         overview = info['overview']
         revenue = info['revenue']
         title = info['title']

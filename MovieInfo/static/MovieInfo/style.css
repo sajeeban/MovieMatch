@@ -1,3 +1,7 @@
+body {
+    padding-top: 60px;
+}
+
 .navbar {
     border-radius: 0;
     margin-bottom: 0;
@@ -43,11 +47,6 @@ header .intro-p {
     font-size: 22px;
     line-height: 22px;
     margin-bottom: 25px;
-}
-
-.container-pad {
-    padding: 40px 10px;
-    border: none;
 }
 
 .front-container {
@@ -107,9 +106,6 @@ h2 {
     padding-bottom: 20px;
 }
 
-.poster {
-    padding-top: 20px;
-}
 
 .info {
     color: white;
