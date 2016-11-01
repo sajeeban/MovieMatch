@@ -13,6 +13,16 @@ class IndexView(generic.ListView):
     template_name = 'MovieInfo/index.html'
     context_object_name = 'all_movies'
 
+    def get(self, request):
+
+        title = 'hello'
+        pop_movies = MovieInfo().get_popular_movies()
+        context = {
+            'title': title,
+            'pop_movies': pop_movies,
+        }
+        return render(request, self.template_name, context)
+
     def get_queryset(self):
         return Movie_Info.objects.all()
 
@@ -69,8 +79,9 @@ def logout_view(request):
 
 def search(request):
     if request.method == 'GET':
+        print request
         query = request.GET['search_box']
-        movie_info = MovieInfo(query).get_movie_info()
+        movie_info = MovieInfo().get_movie_info(query)
         poster_url = movie_info['poster_url']
         backdrop_url = movie_info['backdrop_url']
         overview = movie_info['overview']
@@ -93,3 +104,14 @@ def search(request):
             'runtime': runtime
         }
         return render(request, 'MovieInfo/detail.html', context)
+
+
+def popular_movies(request):
+
+    title = 'hello'
+    pop_movies = MovieInfo().get_popular_movies()
+    print pop_movies
+    context = {
+        'title': title,
+    }
+    return render(request, 'MovieInfo/index.html', context )

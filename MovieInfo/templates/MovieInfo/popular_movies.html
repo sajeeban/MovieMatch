@@ -1,0 +1,15 @@
+
+<div class="row popular">
+    <div class="col-md-offset-1">
+        {% for title, url in pop_movies.items %}
+        <div class="col-md-2">
+            <div class="text-center">
+                <a href=# type="text" name="search_box" value="{{title}}">
+                <img src="{{url}}" class="img-rounded center-block poster">
+                </a>
+            </div>
+        </div>
+        {%endfor%}
+    </div>
+</div>
+

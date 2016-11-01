@@ -128,3 +128,8 @@ h2 {
 .poster {
     padding-top: 25px;
 }
+
+.popular {
+    padding-top: 100px;
+    opacity: 0.5;
+}
