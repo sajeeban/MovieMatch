@@ -30,3 +30,4 @@ class LoginForm(forms.Form):
             raise forms.ValidationError("This user is no loger active")
         return super(LoginForm, self).clean()
 
+

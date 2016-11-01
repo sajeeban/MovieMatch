@@ -81,7 +81,6 @@ class MovieInfo(object):
         revenue_format = format(revenue, ",d")
         budget_format = format(budget, ",d")
 
-
         movie_details = {
             'poster_url': poster_url,
             'backdrop_url': backdrop_url,
@@ -95,4 +94,3 @@ class MovieInfo(object):
         }
         return movie_details
 
-movie = MovieInfo("Interstellar")

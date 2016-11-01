@@ -112,5 +112,19 @@ h2 {
     font-size: 20px;
     padding-top: 30px;
     padding-left: 20px;
+}
 
+.logged-in {
+    color: white;
+    right: 60px;
+    font-size: 15px;
+}
+
+.logged-out {
+    right: 30px;
+    font-size: 15px;
+}
+
+.poster {
+    padding-top: 25px;
 }

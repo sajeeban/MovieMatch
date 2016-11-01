@@ -57,6 +57,7 @@ def login_view(request):
         password = form.cleaned_data.get("password")
         user = authenticate(username=username, password=password)
         login(request, user)
+        return redirect('index')
 
     return render(request, "MovieInfo/login.html", {"form": form, "title": title})
 
@@ -64,6 +65,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect('index')
+
 
 def search(request):
     if request.method == 'GET':
@@ -75,6 +77,9 @@ def search(request):
         revenue = movie_info['revenue']
         title = movie_info['title']
         tagline = movie_info['tagline']
+        budget = movie_info['budget']
+        release_date = movie_info['release_date']
+        runtime = movie_info['runtime']
 
         context = {
             'poster_url': poster_url,
@@ -82,6 +87,9 @@ def search(request):
             'overview': overview,
             'revenue': revenue,
             'title': title,
-            'tagline': tagline
+            'tagline': tagline,
+            'release_date': release_date,
+            'budget': budget,
+            'runtime': runtime
         }
         return render(request, 'MovieInfo/detail.html', context)

@@ -52,11 +52,29 @@ body {
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
-            <li class="">
-                <a href="{% url 'register' %}">
+              {% if user.is_authenticated %}
+              <li class="logged-in">
+                    <a href="{% url 'register' %}">
+                        <span aria-hidden="true"></span>&nbsp; Welcome {{user.get_username}}
+                    </a>
+                  </li>
+              <li class="logged-in">
+                  <a href="{% url 'logout' %}">
+                        <span aria-hidden="true"></span>&nbsp; Logout
+                  </a>
+              </li>
+                {% else %}
+              <li class="logged-out">
+                <a href="{% url 'login' %}">
                     <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Login
                 </a>
-            </li>
+              </li>
+              <li class="logged-out">
+                  <a href="{% url 'register' %}">
+                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>&nbsp; Register
+                    </a>
+              </li>
+                {% endif %}
           </ul>
         </div>
     </nav>
